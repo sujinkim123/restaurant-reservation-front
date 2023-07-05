@@ -1,4 +1,4 @@
-# restaurant-reservation-front2
+# restaurant-reservation-front
 
 ## Project setup
 ```
