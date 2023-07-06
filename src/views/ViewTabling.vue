@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="../assets/logo.png">
-    <p>맛집 방문 후기를 남길 수 있는 게시판 페이지입니다.
+    <p>
+    스마트하게 줄서는 온라인 웨이팅 서비스 페이지 입니다.
     </p>
   </div>
 </template>
@@ -9,7 +10,7 @@
 <script>
 
 export default {
-  name: 'ViewAbout',
+  name: 'ViewTabling',
 }
 </script>
 

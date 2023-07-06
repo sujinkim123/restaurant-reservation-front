@@ -1,15 +1,16 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="../assets/logo.png">
-    <p>맛집 방문 후기를 남길 수 있는 게시판 페이지입니다.
-    </p>
+    <p>1. 놀거리 기획전(현재 진행하는 놀거리 list)</p>
+    <p>2. 내주변 레저/티켓(내주변 놀거리 list)</p>
+    <p>3. 내주변 킹특가(주변 30% 할인 상품 list)</p>
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'ViewAbout',
+  name: 'ViewTicket',
 }
 </script>
 

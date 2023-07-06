@@ -1,6 +1,9 @@
 import { createWebHistory, createRouter } from "vue-router";
-import ViewHome from '../views/ViewHome';
-import ViewAbout from '../views/ViewAbout'
+import ViewHome from '../views/ViewHome'
+import ViewWeather from '../views/ViewWeather'
+import ViewPopular from '../views/ViewPopular'
+import ViewTabling from '../views/ViewTabling'
+import ViewTicket from '../views/ViewTicket'
 import ViewBoard from '../views/ViewBoard'
 import ViewLogin from '../views/ViewLogin'
 import ViewSignup from '../views/ViewSignup'
@@ -11,8 +14,20 @@ const routes = [
     component: ViewHome,
   },
   {
-    path: "/about",
-    component: ViewAbout,
+    path: "/weather",
+    component: ViewWeather,
+  },
+  {
+    path: "/best100",
+    component: ViewPopular,
+  },
+  {
+    path: "/tabling",
+    component: ViewTabling,
+  },
+  {
+    path: "/ticket",
+    component: ViewTicket,
   },
   {
     path: "/board/list",

@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="../assets/logo.png">
-    <p>맛집 방문 후기를 남길 수 있는 게시판 페이지입니다.
+    <p>
+    최근 한달 간 인기 있었던 음식적 목록 페이지입니다.
     </p>
   </div>
 </template>
@@ -9,7 +10,7 @@
 <script>
 
 export default {
-  name: 'ViewAbout',
+  name: 'ViewPopular',
 }
 </script>
 
