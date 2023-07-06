@@ -1,23 +1,45 @@
 <template>
-  <div>
-    <pageHeader></pageHeader>
-    <router-view></router-view>
-    <pageFooter></pageFooter>
-  </div>
+  <TheHeader />
+  <router-view class="router-view"/>
+  <TheFooter/>
 </template>
 
 <script>
-import pageHeader from "./components/layouts/Header"
-import pageFooter from "./components/layouts/Footer";
+import TheHeader from './components/layouts/TheHeader.vue';
+import TheFooter from './components/layouts/TheFooter.vue';
 
 export default {
   name: 'App',
   components: {
-    pageHeader,
-    pageFooter
+    TheHeader,
+    TheFooter
   }
 }
 </script>
 
 <style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+
+.router-view {
+  height: 100%;
+}
 </style>
