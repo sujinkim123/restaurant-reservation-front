@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="../assets/logo.png">
+    <div id="map" style="width:500px; height:600px;">
     <p>오늘의 날씨</p>
     <p>주간날씨</p>
     <p>날씨검색</p>
   </div>
+  </div>
 </template>
 
 <script>
-
 export default {
   name: 'ViewWeather',
 }
