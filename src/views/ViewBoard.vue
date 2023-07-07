@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div>
+    <div class="table-container">
       <table class="w3-table-all table table-striped">
         <thead>
           <tr>
@@ -97,6 +97,19 @@ export default {
         }
       })
     },
+    fnView(idx) {
+      this.requestBody.idx = idx
+      this.$router.push({
+        path: './detail',
+        query: this.requestBody
+      })
+    },
+    fnPage(n) {
+      if (this.page !== n) {
+        this.page = n
+        this.fnGetList
+      }
+    },
     formatDate: function(dateString) {
       var date = new Date(dateString);
       var year = date.getFullYear();
@@ -124,6 +137,11 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.table-container {
+  width: 80%;
+  height: 80%;
+  margin-left: 150px;
 }
 .board-list {
   width: 768px;
