@@ -1,9 +1,11 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <p>
-    회원가입 페이지입니다.
-    </p>
+    <form @submit.prevent="submitForm">
+      <div>
+        <label for="email">email</label>
+        <input type="text" id="email" v-model="email" />
+      </div>
+    </form>
   </div>
 </template>
 
