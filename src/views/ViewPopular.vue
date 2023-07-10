@@ -46,12 +46,12 @@ export default {
   data() {
     return {
       stores : [
-        {title: '수육 맛집 베스트 3곳', description: '촉촉하고 야들야들한 수육 한점의 행복~', imgSrc: require('../assets/img/popularStore/soyook.jpg')},
-        {title: '덮밥 맛집 베스트 50곳', description: '하얀 밥 위에 맛있는 요리를 덮으면?', imgSrc: require('../assets/img/popularStore/deopbap.jpg')},
+        {title: '수육 맛집 베스트 20곳', description: '촉촉하고 야들야들한 수육 한점의 행복~', imgSrc: require('../assets/img/popularStore/soyook.jpg')},
+        {title: '덮밥 맛집 베스트 20곳', description: '하얀 밥 위에 맛있는 요리를 덮으면?', imgSrc: require('../assets/img/popularStore/deopbap.jpg')},
         {title: '로제 파스타 맛집 베스트 20곳', description: '토마토? 크림? 난 로제!', imgSrc: require('../assets/img/popularStore/rosepasta.jpg')},
-        {title: '제주 서귀포 맛집 베스트 50곳', description: '많고 많은 서귀포의 맛집들 중 엄선해봤어~', imgSrc: require('../assets/img/popularStore/seogyipo.jpg')},
-        {title: '갈치 맛집 베스트 40곳', description: '길어서 살도 많은 갈치 먹어볼까?', imgSrc: require('../assets/img/popularStore/galchi.jpg')},
-        {title: '보양식 맛집 베스트 45곳', description: '본격 더위 오기 전 지금이 보양 타임!', imgSrc: require('../assets/img/popularStore/boyangsik.jpg')},
+        {title: '제주 서귀포 맛집 베스트 30곳', description: '많고 많은 서귀포의 맛집들 중 엄선해봤어~', imgSrc: require('../assets/img/popularStore/seogyipo.jpg')},
+        {title: '갈치 맛집 베스트 20곳', description: '길어서 살도 많은 갈치 먹어볼까?', imgSrc: require('../assets/img/popularStore/galchi.jpg')},
+        {title: '보양식 맛집 베스트 25곳', description: '본격 더위 오기 전 지금이 보양 타임!', imgSrc: require('../assets/img/popularStore/boyangsik.jpg')},
       ],
       sites : [
         {title: '2023 경기도 인기 맛집', description: '경기도 찐맛집 여기 다 있네!', imgSrc: require('../assets/img/popularStore/kyeonggi.jpg')},
