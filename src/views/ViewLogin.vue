@@ -5,10 +5,10 @@
     <div id="loginForm">
       <form>
         <p>
-          <input class="w3-input" name="uid" placeholder="아이디를 입력해주세요" v-model="user_id"><br>
+          <input class="w3-input" name="uid" placeholder="아이디" v-model="user_id"><br>
         </p>
         <p>
-          <input name="password" class="w3-input" placeholder="비밀번호를 입력해주세요" v-model="user_pw" type="password">
+          <input name="password" class="w3-input" placeholder="비밀번호" v-model="user_pw" type="password">
         </p>
         <p>
           <button type="submit" class="w3-button w3-green w3-round">로그인</button>
