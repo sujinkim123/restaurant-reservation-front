@@ -106,7 +106,7 @@ export default {
   margin-top: 60px;
 }
 main {
-  min-height: 70vh;
+  min-height: 60vh;
   padding: 25px;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.75));
 }
