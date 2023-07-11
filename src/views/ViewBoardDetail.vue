@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import '../assets/css/w3.css';
 
 export default {
   name: 'ViewBoard',
