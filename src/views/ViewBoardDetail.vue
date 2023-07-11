@@ -5,7 +5,7 @@
       <div>
         <strong class="w3-large">{{ writer }}</strong>
         <br>
-        <span>{{  createdAt }}</span>
+        <span>{{  formatDate(createdAt) }}</span>
       </div>
     </div>
     <div class="board-contents">
@@ -56,6 +56,13 @@ export default {
         query: this.requestBody
       })
     },
+    formatDate: function(dateString) {
+      var date = new Date(dateString);
+      var year = date.getFullYear();
+      var month = ('0' + (date.getMonth() + 1)).slice(-2);
+      var day = ('0' + date.getDate()).slice(-2);
+      return `${year}-${month}-${day}`;
+    }
   }
 }
 </script>

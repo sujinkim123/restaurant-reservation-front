@@ -9,7 +9,7 @@
             <th>NO</th>
             <th>제목</th>
             <th>작성자</th>
-            <th>등록일시</th>
+            <th>작성일자</th>
           </tr>
         </thead>
         <tbody>
