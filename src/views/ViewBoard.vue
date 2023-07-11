@@ -19,10 +19,10 @@
           </tr>
         </tbody>
       </table>
-      <div class="pagination w3-bar w3-padding-16 w3-small" v-if="paging.total_list_cnt > 0">
-        <span class="pg">
+      <div class="pagination w3-bar w3-padding-16 w3-small" v-if="paging.totalListCnt > 0">
+        <span class="pg" style="display: flex; justify-content: center;">
           <a href="javascript:;" @click="fnPage(1)" class="first w3-button w3-bar-item w3-border">&lt;&lt;</a>
-          <a href="javascript:;" v-if="paging.start_page > 10" @click="fnPage(`${paging.start_page-1}`)"
+          <a href="javascript:;" v-if="paging.startPage > 10" @click="fnPage(`${paging.startPage-1}`)"
             class="prev w3-button w3-bar-item w3-border">&lt;</a>
             <template v-for=" (n, index) in paginavigation()">
               <template v-if="paging.page ==n">
@@ -32,9 +32,8 @@
                 <a class="w3-button w3-bar-item w3-border" href="javascript:;" @click="fnPage(`${n}`)" :key="index">{{ n }}</a>
               </template>
             </template>
-            <a href="javascript:;" v-if="paging.total_page_cnt > paging.end_page"
-              @click="fnPage(`${paging.end_page+1}`)" class="next w3-button w3-bar-item w3-border">&gt;</a>
-            <a href="javascript:;" @click="fnPage(`${paging.total_page_cnt}`)" class="last w3-button w3-bar-item w3-border">&gt;&gt;</a>
+              <a href="javascript:;" v-if="paging.totalPageCnt > paging.endPage" @click="fnPage(paging.endPage + 1)" class="next w3-button w3-bar-item w3-border">&gt;</a>
+              <a href="javascript:;" @click="fnPage(paging.totalPageCnt)" class="last w3-button w3-bar-item w3-border">&gt;&gt;</a>
         </span>
       </div>
     </div>
@@ -42,83 +41,92 @@
 </template>
 
 <script>
+import '../assets/css/w3.css';
 
 export default {
   name: 'ViewBoard',
-  data() { // 변수 생성
+  data() {
     return {
-      requestBody: {}, // 리스트 페이지 데이터 전송
-      list: {}, // 리스트 데이터
-      no: '', // 게시판 숫자 처리
+      requestBody: {},
+      list: {},
+      no: '',
       paging: {
         block: 0,
-        end_page : 0,
-        next_block: 0,
+        endPage: 0,
+        nextBlock: 0,
         page: 0,
-        page_size: 0,
-        prev_block: 0,
-        start_index : 0,
-        start_page : 0,
-        total_block_cnt: 0,
-        total_list_cnt : 0,
-        total_page_cnt : 0,
-      }, // 페이징 데이터
-      page : this.$route.query.page ? this.$route.query.page : 1,
-      size : this.$route.query.size ? this.$route.query.size : 10,
-      keyword : this.$route.query.keyword,
-      paginavigation : function () {
-        let pageNubmer = [];
-        let start_page = this.paging.start_page;
-        let end_page = this.paging.end_page;
-        for (let i = start_page; i <= end_page; i++) pageNubmer.push(i);
-        return pageNubmer;
-      }
-    }
+        pageSize: 0,
+        prevBlock: 0,
+        startIndex: 0,
+        startPage: 0,
+        totalBlockCnt: 0,
+        totalListCnt: 0,
+        totalPageCnt: 0,
+      },
+      page: this.$route.query.page ? parseInt(this.$route.query.page) : 1,
+      size: this.$route.query.size ? parseInt(this.$route.query.size) : 10,
+      keyword: this.$route.query.keyword,
+      paginavigation: function() {
+        let pageNumber = [];
+        let startPage = this.paging.startPage;
+        let endPage = this.paging.endPage;
+        for (let i = startPage; i <= endPage; i++) pageNumber.push(i);
+        return pageNumber;
+      },
+    };
   },
   mounted() {
-    this.fnGetList()
+    this.fnGetList();
   },
   methods: {
     fnGetList() {
       this.requestBody = {
         keyword: this.keyword,
         page: this.page,
-        size: this.size
-      }
+        size: this.size,
+      };
 
-      this.$axios.get(this.$serverUrl + "/board/list", {
-        params: this.requestBody,
-        headers: {}
-      }).then((res) => {
-        this.list = res.data
-      }).catch((err) => {
-        if (err.message.indexOf('Network Error') > -1) {
-          alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
-        }
-      })
+      this.$axios
+        .get(this.$serverUrl + '/board/list', {
+          params: this.requestBody,
+          headers: {},
+        })
+        .then((res) => {
+          if (res.data.resultCode === 'OK') {
+            console.log(res.data.pagination);
+            this.list = res.data.data;
+            this.paging = res.data.pagination;
+          }
+        })
+        .catch((err) => {
+          if (err.message.indexOf('Network Error') > -1) {
+            alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.');
+          }
+        });
     },
     fnView(idx) {
-      this.requestBody.idx = idx
       this.$router.push({
         path: './detail',
-        query: this.requestBody
-      })
+        query: {
+          idx: idx,
+        },
+      });
     },
     fnPage(n) {
       if (this.page !== n) {
-        this.page = n
-        this.fnGetList
+        this.page = n;
+        this.fnGetList();
       }
     },
-    formatDate: function(dateString) {
+    formatDate: function (dateString) {
       var date = new Date(dateString);
       var year = date.getFullYear();
       var month = ('0' + (date.getMonth() + 1)).slice(-2);
       var day = ('0' + date.getDate()).slice(-2);
       return `${year}-${month}-${day}`;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style>
@@ -141,7 +149,7 @@ export default {
 .table-container {
   width: 80%;
   height: 80%;
-  margin-left: 150px;
+  margin-left: 200px;
 }
 .board-list {
   width: 768px;
@@ -157,5 +165,9 @@ export default {
 .board-contents {
   padding: 12px 8px;
   border-bottom: 1px solid #eee;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
 }
 </style>
