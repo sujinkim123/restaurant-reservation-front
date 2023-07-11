@@ -1,18 +1,21 @@
 const { defineConfig } = require('@vue/cli-service')
+
 module.exports = defineConfig({
   transpileDependencies: true,
   lintOnSave: false,
-  outputDir: "../src/main/resources/static", // 빌드 타겟 디렉토리
+  outputDir: "../src/main/resources/static",
   devServer: {
     proxy: {
-      '/api' : {
-        // 'api'로 들어오면 포트 8080(스프링 서버)로 보낸다
-        target: 'http://localhost:8080/api',
+      '/api': {
+        target: 'http://localhost:8080', // 기본 URL 설정
         changeOrigin: true, // cross origin 허용
+        pathRewrite: {
+          '^/api': '/api', // 프록시 경로 재작성
+        },
       },
       '/wid': {
         target: 'http://www.kma.go.kr',
-      }
-    }
-  }
+      },
+    },
+  },
 })
